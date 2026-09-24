@@ -1,0 +1,647 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Alexis's Investment Shortlist</title>
+<style>
+  :root{
+    --ink:#1b2a2f;
+    --ink-soft:#4a5b5c;
+    --paper:#f6f3ea;
+    --card:#ffffff;
+    --line:#dcd5c2;
+    --accent:#3f6b52;
+    --accent-soft:#e4ede7;
+    --warm:#a9713d;
+    --warm-soft:#f3e6d6;
+    --good:#2f7a4f;
+    --good-soft:#e2f0e6;
+    --watch:#a9713d;
+    --watch-soft:#f6ead6;
+    --bad:#b0503f;
+    --bad-soft:#f5e2de;
+    --shadow: 0 1px 2px rgba(27,42,47,.06), 0 8px 24px -12px rgba(27,42,47,.18);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --ink:#eef2ee;
+      --ink-soft:#aebdb8;
+      --paper:#131c1a;
+      --card:#1b2624;
+      --line:#2c3936;
+      --accent:#7fbb98;
+      --accent-soft:#22332c;
+      --warm:#d9a468;
+      --warm-soft:#332a1d;
+      --good:#7fbb98;
+      --good-soft:#1e3327;
+      --watch:#d9a468;
+      --watch-soft:#332a1d;
+      --bad:#e0917f;
+      --bad-soft:#3a231e;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eef2ee;
+    --ink-soft:#aebdb8;
+    --paper:#131c1a;
+    --card:#1b2624;
+    --line:#2c3936;
+    --accent:#7fbb98;
+    --accent-soft:#22332c;
+    --warm:#d9a468;
+    --warm-soft:#332a1d;
+    --good:#7fbb98;
+    --good-soft:#1e3327;
+    --watch:#d9a468;
+    --watch-soft:#332a1d;
+    --bad:#e0917f;
+    --bad-soft:#3a231e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    padding-inline:20px;
+    padding-block:40px 64px;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:960px;margin:0 auto;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;}
+  a{color:inherit;}
+
+  /* brand */
+  .brandmark{margin-bottom:24px;}
+  .brandmark img{height:44px;width:auto;display:block;}
+
+  /* header */
+  .eyebrow{
+    font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;margin-bottom:4px;
+  }
+  .prepared-date{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+  header h1{font-size:clamp(30px,5vw,44px);font-weight:600;line-height:1.08;color:var(--ink);}
+  .subhead{margin-top:10px;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:66ch;}
+
+  .stat-row{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin-top:28px;
+  }
+  .stat{background:var(--card);padding:16px 18px;}
+  .stat .n{font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:600;color:var(--accent);}
+  .stat .l{font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em;margin-top:2px;}
+
+  /* methodology box */
+  .method{
+    margin-top:36px;border:1px solid var(--line);background:var(--card);
+    border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+  }
+  .method h3{font-size:16px;font-weight:600;margin-bottom:10px;}
+  .method .formula{
+    font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:16px;
+    color:var(--accent);margin:10px 0 4px;line-height:1.5;
+  }
+  .method .formula small{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .method p{font-size:14px;line-height:1.65;color:var(--ink-soft);margin:12px 0 8px;}
+  .method p:last-child{margin-bottom:0;}
+  .method strong{color:var(--ink);}
+
+  /* section */
+  .section{margin-top:52px;}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+  .section-head h2{font-size:24px;font-weight:600;}
+  .section-note{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:68ch;margin-top:6px;}
+  .callout{
+    margin-top:16px;border-left:3px solid var(--warm);background:var(--warm-soft);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;color:var(--ink);line-height:1.6;
+  }
+  .callout.good{border-left-color:var(--good);background:var(--good-soft);}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:20px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;gap:12px;
+    text-decoration:none;color:inherit;transition:box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:hover{border-color:var(--accent);box-shadow:0 2px 4px rgba(27,42,47,.08), 0 12px 28px -12px rgba(27,42,47,.24);}
+  .card.pick{border-color:var(--accent);}
+  .pick-flag{
+    position:absolute;top:-11px;left:18px;background:var(--accent);color:var(--paper);
+    font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;
+  }
+  .card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .addr{font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;line-height:1.25;}
+  .neighborhood{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .price{font-size:19px;font-weight:700;white-space:nowrap;font-family:'Fraunces',Georgia,serif;}
+  .price .was{
+    display:block;text-decoration:line-through;font-size:12px;font-weight:400;
+    color:var(--ink-soft);font-family:'Inter',sans-serif;
+  }
+  .specs{display:flex;gap:14px;font-size:13px;color:var(--ink-soft);}
+  .cap-row{display:flex;align-items:center;gap:10px;padding-top:2px;}
+  .cap-badge{
+    font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:20px;
+    padding:4px 12px;border-radius:10px;
+  }
+  .cap-badge.good{background:var(--good-soft);color:var(--good);}
+  .cap-badge.watch{background:var(--watch-soft);color:var(--watch);}
+  .cap-label{font-size:11.5px;color:var(--ink-soft);}
+  .flags{display:flex;gap:6px;flex-wrap:wrap;}
+  .data-flag{
+    font-size:10.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    padding:3px 8px;border-radius:6px;width:fit-content;
+  }
+  .data-flag.confirmed{background:var(--good-soft);color:var(--good);}
+  .data-flag.estimated{background:var(--watch-soft);color:var(--watch);}
+  .data-flag.note{background:var(--warm-soft);color:var(--warm);}
+  .breakdown{
+    font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);
+    padding-top:10px;line-height:1.7;
+  }
+  .breakdown b{color:var(--ink);font-weight:600;}
+  .take{font-size:13px;line-height:1.6;color:var(--ink);}
+  .take b{color:var(--accent);}
+  .card-cta{
+    font-size:12.5px;font-weight:600;color:var(--accent);margin-top:auto;
+    display:flex;align-items:center;gap:4px;
+  }
+
+  /* ranking table */
+  .rank-table{
+    margin-top:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:var(--card);box-shadow:var(--shadow);
+  }
+  .rank-row{
+    display:grid;grid-template-columns:32px 1fr auto;gap:14px;align-items:center;
+    padding:14px 18px;border-bottom:1px solid var(--line);font-size:13.5px;
+  }
+  .rank-row:last-child{border-bottom:none;}
+  .rank-num{
+    font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--accent);font-size:16px;
+  }
+  .rank-name{font-weight:600;text-decoration:none;color:var(--accent);}
+  .rank-name:hover{text-decoration:underline;}
+  .rank-why{color:var(--ink-soft);font-weight:400;display:block;font-size:12.5px;margin-top:2px;}
+  .rank-cap{font-family:'Fraunces',Georgia,serif;font-weight:700;white-space:nowrap;}
+  .rank-head{
+    display:grid;grid-template-columns:32px 1fr auto;gap:14px;
+    padding:0 18px 8px;margin-top:20px;
+    font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  footer{
+    margin-top:56px;border-top:1px solid var(--line);padding-top:24px;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:13px;color:var(--ink-soft);line-height:1.7;
+  }
+  footer .brand{font-family:'Fraunces',Georgia,serif;font-size:16px;color:var(--ink);font-weight:600;}
+
+  @media (max-width:520px){
+    .card-top{flex-direction:column;}
+    .price{white-space:normal;}
+    .rank-row{grid-template-columns:24px 1fr;}
+    .rank-cap{grid-column:2;justify-self:start;}
+  }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <header>
+    <div class="brandmark">
+      <div style="font-family:&#39;Fraunces&#39;,Georgia,serif;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.01em;">COASTAL <span style="color:var(--accent);">PROPERTY ADVISORS</span></div>
+    </div>
+    <div class="eyebrow">Prepared for Alexis Estiz</div>
+    <div class="prepared-date">Prepared September 17, 2026</div>
+    <h1>Investment Condo Shortlist</h1>
+    <p class="subhead">NYC investment condo, $500k&ndash;$800k, cash purchase, condos only. Minimum bar: 3%+ unlevered cap rate. Williamsburg &mdash; your top choice &mdash; has genuine inventory in budget right now, including two of the best cap rates on the whole list.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n">$549k&ndash;$799k</div><div class="l">Price range</div></div>
+      <div class="stat"><div class="n">4.1%</div><div class="l">Best cap rate at asking</div></div>
+      <div class="stat"><div class="n">9</div><div class="l">Neighborhoods represented</div></div>
+    </div>
+  </header>
+
+  <div class="method">
+    <h3>How we&rsquo;re screening these</h3>
+    <div class="formula">Cap Rate = Annual Net Income &divide; Purchase Price
+      <small>Annual net income = (monthly rent &times; 12) &minus; annual property taxes &minus; annual common charges. Everything is converted to a yearly total first &mdash; the monthly figures on each card below are shown for readability, not used directly in the math.</small>
+    </div>
+    <p>This is a fast screen, not full underwriting &mdash; insurance, vacancy allowance, and management fees come later, once you&rsquo;re serious about a specific unit. It's also unlevered: since you're buying in cash, this number is close to your actual return.</p>
+    <p>Figures marked <em>confirmed</em> are pulled directly from the current listing. Figures marked <em>estimated</em> are placeholders where a listing didn&rsquo;t show its own numbers &mdash; worth confirming before an offer. Every property shown clears a 3% floor either way.</p>
+  </div>
+
+  <!-- WILLIAMSBURG -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Williamsburg</h2>
+    </div>
+    <div class="callout good">
+      <strong>Real inventory in your top neighborhood:</strong> six condos here clear the 3% floor, two of them at 4.1% &mdash; the best cap rates anywhere on this list. Every figure below is confirmed straight from the listing.
+    </div>
+
+    <div class="cards">
+
+      <a class="card pick" href="https://www.zillow.com/homes/29-Montrose-Ave-2A-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">
+        <span class="pick-flag">Best cap rate, confirmed</span>
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">29 Montrose Avenue #2A</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$650,000</div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span><span>507 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">4.1%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$2,850/mo</b> &middot; common charges <b>$345/mo</b> &middot; taxes <b>$306/mo</b> &middot; 6 days on market<br>
+          Last sold <b>$620,000</b> (10/12/2022).
+        </div>
+        <div class="take">The best confirmed cap rate on the entire list, in your #1 neighborhood. <b>One flag:</b> 421a tax abatement expires in 2027 &mdash; the tax line will rise after that.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/221-Devoe-St-1A-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">
+        <span class="pick-flag">Tied for best</span>
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Verify status</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">221 Devoe Street #1A</div>
+            <div class="neighborhood">East Williamsburg</div>
+          </div>
+          <div class="price">$715,000</div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1.5 bath</span><span>874 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">4.1%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$3,300/mo</b> &middot; common charges <b>$731/mo</b> &middot; taxes <b>$139/mo</b> &middot; duplex layout<br>
+          Last sold <b>$687,319</b> (8/30/2019).
+        </div>
+        <div class="take">Ties for the top cap rate &mdash; big duplex, unusually low tax line. Shows active on StreetEasy; status may read differently on Zillow, so worth confirming availability before scheduling a showing.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/238-Richardson-St-3B-Brooklyn-NY-11222_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">238 Richardson Street #3B</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$760,000<span class="was">was $825,000</span></div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span><span>541 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.9%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$2,900/mo</b> &middot; common charges <b>$392/mo</b> &middot; taxes <b>$18/mo</b> &middot; 112 days on market<br>
+          Last sold <b>$665,000</b> (2019).
+        </div>
+        <div class="take"><b>Rare tax abatement runs through 2034</b> &mdash; the $18/mo tax line isn&rsquo;t a typo. Cut $65k already; 112 days on market suggests room to negotiate further.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/14-Monitor-St-1C-Brooklyn-NY-11222_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">14 Monitor Street #1C</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$799,000<span class="was">was $899,000</span></div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1.5 bath</span><span>831 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.6%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$3,400/mo</b> &middot; common charges <b>$551/mo</b> &middot; taxes <b>$474/mo</b> &middot; 26 days on market (relisted)<br>
+          Last sold <b>$670,000</b> (12/21/2017).
+        </div>
+        <div class="take">Big duplex, doorman building. At the top of the budget but the most space per dollar in this section.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/133-Conselyea-St-3R-Brooklyn-NY-11211_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">133 Conselyea Street #3R</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$725,000</div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.3%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$3,100/mo</b> &middot; common charges <b>$400/mo</b> &middot; taxes <b>$680/mo</b> &middot; 6 days on market<br>
+          Last sold <b>$620,000</b> (July 2015).
+        </div>
+        <div class="take">Boutique 8-unit building, in-unit W/D. Solid but unremarkable next to the four above it &mdash; a fine backup.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/96-Woodpoint-Rd-2C-Brooklyn-NY-11211_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">96 Woodpoint Road #2C</div>
+            <div class="neighborhood">Williamsburg &middot; Muse Condos</div>
+          </div>
+          <div class="price">$649,900<span class="was">was $725,000</span></div>
+        </div>
+        <div class="specs"><span>Studio</span><span>2 bath</span><span>619 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.0%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$2,600/mo</b> &middot; common charges <b>$152/mo</b> &middot; taxes <b>$822/mo</b> &middot; relisted 9/10<br>
+          Last sold <b>$573,500</b> (3/1/2017).
+        </div>
+        <div class="take">17-ft ceilings and a sleeping mezzanine with 2 full baths &mdash; rents like a small 1BR despite being a studio on paper. Right at the floor.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ASTORIA / LIC -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Astoria &amp; Long Island City</h2>
+    </div>
+    <p class="section-note">Condos only &mdash; a few LIC candidates that looked condo-priced in aggregator search turned out to be co-ops and were excluded.</p>
+
+    <div class="cards">
+
+      <a class="card" href="https://www.zillow.com/homes/32-86-41st-Street-3D-Astoria-NY-11103_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">32-86 41st Street #3D</div>
+            <div class="neighborhood">Astoria &middot; near Steinway St (M/R)</div>
+          </div>
+          <div class="price">$625,000</div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span><span>686 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.8%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$2,950/mo</b> &middot; common charges <b>$457/mo</b> &middot; taxes <b>$516/mo</b> (incl. water/gas/heat)<br>
+          Last sold <b>$499,999</b> (7/22/2016).
+        </div>
+        <div class="take">Renovated, well-located, no rental restriction.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+      <a class="card" href="https://www.zillow.com/homes/45-02-Ditmars-Blvd-124-Astoria-NY-11105_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">45-02 Ditmars Blvd #124</div>
+            <div class="neighborhood">Ditmars-Steinway &middot; Pistilli Grand Manor</div>
+          </div>
+          <div class="price">$620,000</div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span><span>956 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.8%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$3,200/mo</b> &middot; common charges <b>$739/mo</b> &middot; taxes <b>$518/mo</b><br>
+          Last sold <b>$350,000</b> (2/25/2013).
+        </div>
+        <div class="take">Unusually large for a 1BR at this price &mdash; doorman, elevator building, 9 days on market.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- BUSHWICK -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Bushwick</h2>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://www.zillow.com/homes/78-Harman-Street-4F-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">
+        <div class="flags">
+          <span class="data-flag confirmed">CC confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">78 Harman Street #4F</div>
+            <div class="neighborhood">Bushwick &middot; The Harman</div>
+          </div>
+          <div class="price">$599,000<span class="was">was $700,000</span></div>
+        </div>
+        <div class="specs"><span>1 bed</span><span>1 bath</span><span>663 ft&sup2;</span></div>
+        <div class="cap-row">
+          <span class="cap-badge good">3.6%</span>
+          <span class="cap-label">at asking price</span>
+        </div>
+        <div class="breakdown">
+          Conservative rent est. <b>$2,650/mo</b> &middot; common charges <b>$329/mo</b> &middot; taxes <b>$530/mo</b> &middot; 64 days on market<br>
+          No prior resale &mdash; sponsor unit, new construction.
+        </div>
+        <div class="take">Cut twice already (7/15 $700k &rarr; 8/10 $649k &rarr; 9/14 $599k). Motivated seller.</div>
+        <div class="card-cta">View on Zillow &rarr;</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- OTHER ZONES (condensed) -->
+  <section class="section">
+    <div class="section-head"><h2>A few more worth a look</h2></div>
+    <p class="section-note">Seven more options across four neighborhoods, each clearing the 3% floor.</p>
+    <div class="rank-head"><span></span><span>Address</span><span>Est. Cap Rate</span></div>
+    <div class="rank-table">
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homedetails/1811-Menahan-St-3F-Ridgewood-NY-11385/463741680_zpid/" target="_blank" rel="noopener">1811 Menahan St #3F (Ridgewood, The Ridge)</a><span class="rank-why">$549,000 &middot; lowest entry price on the list</span></span>
+        <span class="rank-cap">3.6%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/158-Sackett-St-5B-Brooklyn-NY-11231_rb/" target="_blank" rel="noopener">158 Sackett St #5B (Columbia St Waterfront)</a><span class="rank-why">$640,000 &middot; nearest thing to Carroll Gardens/Cobble Hill in budget</span></span>
+        <span class="rank-cap">3.5%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/386-Kosciuszko-St-2A-Brooklyn-NY-11221_rb/" target="_blank" rel="noopener">386 Kosciuszko St #2A (Bed-Stuy)</a><span class="rank-why">$599,999</span></span>
+        <span class="rank-cap">3.5%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/18-Van-Buren-St-3F-Brooklyn-NY-11221_rb/" target="_blank" rel="noopener">18 Van Buren St #3F (Bed-Stuy)</a><span class="rank-why">$625,000</span></span>
+        <span class="rank-cap">3.3%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/27-Irving-Place-1A-Brooklyn-NY-11205_rb/" target="_blank" rel="noopener">27 Irving Place #1A (Clinton Hill)</a><span class="rank-why">$525,000 &middot; studio</span></span>
+        <span class="rank-cap">3.2%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/176-Johnson-Street-4G-Brooklyn-NY-11201_rb/" target="_blank" rel="noopener">176 Johnson St #4G (Downtown Brooklyn, Toy Factory Lofts)</a><span class="rank-why">$699,000 &middot; best transit access on the list</span></span>
+        <span class="rank-cap">3.2%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">&middot;</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/531-Vanderbilt-Ave-3B-Brooklyn-NY-11238_rb/" target="_blank" rel="noopener">531 Vanderbilt Ave #3B (Clinton Hill)</a><span class="rank-why">$725,000 &middot; real 1BR</span></span>
+        <span class="rank-cap">3.1%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section class="section">
+    <div class="section-head"><h2>The short version &mdash; full list, best first</h2></div>
+    <div class="rank-head"><span></span><span>Address</span><span>Est. Cap Rate</span></div>
+    <div class="rank-table">
+      <div class="rank-row">
+        <span class="rank-num">1</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/29-Montrose-Ave-2A-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">29 Montrose Ave #2A (Williamsburg)</a><span class="rank-why">Best cap rate available today</span></span>
+        <span class="rank-cap">4.1%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">2</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/221-Devoe-St-1A-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">221 Devoe St #1A (East Williamsburg)</a><span class="rank-why">Ties for best &mdash; confirm current status</span></span>
+        <span class="rank-cap">4.1%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">3</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/238-Richardson-St-3B-Brooklyn-NY-11222_rb/" target="_blank" rel="noopener">238 Richardson St #3B (Williamsburg)</a><span class="rank-why">Rare abatement through 2034</span></span>
+        <span class="rank-cap">3.9%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">4</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/32-86-41st-Street-3D-Astoria-NY-11103_rb/" target="_blank" rel="noopener">32-86 41st St #3D (Astoria)</a><span class="rank-why">Best-verified property outside Williamsburg</span></span>
+        <span class="rank-cap">3.8%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">5</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/45-02-Ditmars-Blvd-124-Astoria-NY-11105_rb/" target="_blank" rel="noopener">45-02 Ditmars Blvd #124 (Astoria)</a><span class="rank-why">Most space for the money</span></span>
+        <span class="rank-cap">3.8%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">6</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/14-Monitor-St-1C-Brooklyn-NY-11222_rb/" target="_blank" rel="noopener">14 Monitor St #1C (Williamsburg)</a><span class="rank-why">Big duplex, doorman building</span></span>
+        <span class="rank-cap">3.6%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">7</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/78-Harman-Street-4F-Brooklyn-NY-11206_rb/" target="_blank" rel="noopener">78 Harman St #4F (Bushwick)</a><span class="rank-why">Motivated seller</span></span>
+        <span class="rank-cap">3.6%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">8</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homedetails/1811-Menahan-St-3F-Ridgewood-NY-11385/463741680_zpid/" target="_blank" rel="noopener">1811 Menahan St #3F (Ridgewood)</a><span class="rank-why">Lowest entry price</span></span>
+        <span class="rank-cap">3.6%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">9</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/158-Sackett-St-5B-Brooklyn-NY-11231_rb/" target="_blank" rel="noopener">158 Sackett St #5B (Columbia St Waterfront)</a></span>
+        <span class="rank-cap">3.5%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">10</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/386-Kosciuszko-St-2A-Brooklyn-NY-11221_rb/" target="_blank" rel="noopener">386 Kosciuszko St #2A (Bed-Stuy)</a></span>
+        <span class="rank-cap">3.5%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">11</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/133-Conselyea-St-3R-Brooklyn-NY-11211_rb/" target="_blank" rel="noopener">133 Conselyea St #3R (Williamsburg)</a></span>
+        <span class="rank-cap">3.3%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">12</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/18-Van-Buren-St-3F-Brooklyn-NY-11221_rb/" target="_blank" rel="noopener">18 Van Buren St #3F (Bed-Stuy)</a></span>
+        <span class="rank-cap">3.3%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">13</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/27-Irving-Place-1A-Brooklyn-NY-11205_rb/" target="_blank" rel="noopener">27 Irving Place #1A (Clinton Hill)</a><span class="rank-why">Studio</span></span>
+        <span class="rank-cap">3.2%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">14</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/176-Johnson-Street-4G-Brooklyn-NY-11201_rb/" target="_blank" rel="noopener">176 Johnson St #4G (Downtown Brooklyn)</a></span>
+        <span class="rank-cap">3.2%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">15</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/531-Vanderbilt-Ave-3B-Brooklyn-NY-11238_rb/" target="_blank" rel="noopener">531 Vanderbilt Ave #3B (Clinton Hill)</a></span>
+        <span class="rank-cap">3.1%</span>
+      </div>
+      <div class="rank-row">
+        <span class="rank-num">16</span>
+        <span><a class="rank-name" href="https://www.zillow.com/homes/96-Woodpoint-Rd-2C-Brooklyn-NY-11211_rb/" target="_blank" rel="noopener">96 Woodpoint Rd #2C (Williamsburg)</a></span>
+        <span class="rank-cap">3.0%</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="brand">Herman Singh</div>
+      Coastal Property Advisors &middot; NY | CA | FL<br>
+      hs@coastalpropertyadvisors.com &middot; 718-679-7822
+    </div>
+    <div>Prepared September 17, 2026. Rents are conservative, comp-based estimates &mdash; not guarantees. Send along anything you find yourself and we&rsquo;ll run it through the same screen.</div>
+  </footer>
+
+</div>
+
+</body></html>
