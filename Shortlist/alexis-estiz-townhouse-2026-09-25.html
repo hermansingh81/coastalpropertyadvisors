@@ -1,0 +1,731 @@
+<title>Alexis's Townhouse Shortlist</title>
+<style>
+  :root{
+    --ink:#1b2a2f;
+    --ink-soft:#4a5b5c;
+    --paper:#f6f3ea;
+    --card:#ffffff;
+    --line:#dcd5c2;
+    --accent:#3f6b52;
+    --accent-soft:#e4ede7;
+    --warm:#a9713d;
+    --warm-soft:#f3e6d6;
+    --good:#2f7a4f;
+    --good-soft:#e2f0e6;
+    --watch:#a9713d;
+    --watch-soft:#f6ead6;
+    --bad:#b0503f;
+    --bad-soft:#f5e2de;
+    --shadow: 0 1px 2px rgba(27,42,47,.06), 0 8px 24px -12px rgba(27,42,47,.18);
+    color-scheme: light;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --ink:#eef2ee;
+      --ink-soft:#aebdb8;
+      --paper:#131c1a;
+      --card:#1b2624;
+      --line:#2c3936;
+      --accent:#7fbb98;
+      --accent-soft:#22332c;
+      --warm:#d9a468;
+      --warm-soft:#332a1d;
+      --good:#7fbb98;
+      --good-soft:#1e3327;
+      --watch:#d9a468;
+      --watch-soft:#332a1d;
+      --bad:#e0917f;
+      --bad-soft:#3a231e;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eef2ee;
+    --ink-soft:#aebdb8;
+    --paper:#131c1a;
+    --card:#1b2624;
+    --line:#2c3936;
+    --accent:#7fbb98;
+    --accent-soft:#22332c;
+    --warm:#d9a468;
+    --warm-soft:#332a1d;
+    --good:#7fbb98;
+    --good-soft:#1e3327;
+    --watch:#d9a468;
+    --watch-soft:#332a1d;
+    --bad:#e0917f;
+    --bad-soft:#3a231e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    padding-inline:20px;
+    padding-block:40px 64px;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:960px;margin:0 auto;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;}
+  a{color:inherit;}
+
+  .wordmark{
+    font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:14px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;
+  }
+
+  .logo-top{height:56px;width:auto;display:block;margin-bottom:24px;}
+  .logo-bottom{height:30px;width:auto;display:block;margin-bottom:10px;}
+
+  .eyebrow{
+    font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;margin-bottom:4px;
+  }
+  .prepared-date{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+  header h1{font-size:clamp(28px,5vw,42px);font-weight:600;line-height:1.1;color:var(--ink);}
+  .subhead{margin-top:10px;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:66ch;}
+
+  .stat-row{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin-top:28px;
+  }
+  .stat{background:var(--card);padding:16px 18px;}
+  .stat .n{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:600;color:var(--accent);}
+  .stat .l{font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em;margin-top:2px;}
+
+  .method{
+    margin-top:36px;border:1px solid var(--line);background:var(--card);
+    border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+  }
+  .method h3{font-size:16px;font-weight:600;margin-bottom:10px;}
+  .method .formula{
+    font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15.5px;
+    color:var(--accent);margin:10px 0 4px;line-height:1.5;
+  }
+  .method .formula small{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12px;color:var(--ink-soft);margin-top:4px;}
+  .method p{font-size:14px;line-height:1.65;color:var(--ink-soft);margin:12px 0 8px;}
+  .method p:last-child{margin-bottom:0;}
+  .method strong{color:var(--ink);}
+  .method em{color:var(--ink);font-style:normal;font-weight:600;}
+
+  .section{margin-top:52px;}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+  .section-head h2{font-size:24px;font-weight:600;}
+  .callout{
+    margin-top:16px;border-left:3px solid var(--warm);background:var(--warm-soft);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;color:var(--ink);line-height:1.6;
+  }
+  .callout.good{border-left-color:var(--good);background:var(--good-soft);}
+
+  .cards{display:flex;flex-direction:column;gap:18px;margin-top:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:22px;box-shadow:var(--shadow);position:relative;
+    color:var(--ink);
+    transition:border-color .15s ease;
+  }
+  .card:hover{border-color:var(--accent);}
+  .card:hover .addr{color:var(--accent);}
+  .card.pick{border-color:var(--accent);}
+  /* Stretched-link pattern: this invisible link covers the whole card and is what
+     actually catches clicks, EXCEPT where .calc / .breakdown deliberately sit above it
+     (they get position:relative + a higher z-index below). This is plain CSS hit-testing,
+     not JS event-cancellation, so there's no click that can "leak through" to the wrong
+     link the way there was when the card itself was the anchor. */
+  .card-link{
+    position:absolute;inset:0;z-index:1;border-radius:inherit;
+    text-decoration:none;color:inherit;
+  }
+  .pick-flag{
+    position:absolute;top:-11px;left:20px;background:var(--accent);color:var(--paper);
+    font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;
+  }
+  .flags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .data-flag{
+    font-size:10.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    padding:3px 8px;border-radius:6px;width:fit-content;
+  }
+  .data-flag.confirmed{background:var(--good-soft);color:var(--good);}
+  .data-flag.estimated{background:var(--watch-soft);color:var(--watch);}
+  .data-flag.note{background:var(--warm-soft);color:var(--warm);}
+
+  .card-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;}
+  .addr{font-family:'Fraunces',Georgia,serif;font-size:19px;font-weight:600;line-height:1.25;color:var(--ink);}
+  .neighborhood{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .price{font-size:19px;font-weight:700;white-space:nowrap;font-family:'Fraunces',Georgia,serif;color:var(--ink);}
+  .specs{display:flex;gap:12px;font-size:13px;color:var(--ink-soft);margin-top:10px;flex-wrap:wrap;}
+  .specs span:not(:last-child)::after{content:'\00b7';margin-left:12px;color:var(--line);}
+
+  .breakdown{
+    font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);
+    margin-top:14px;padding-top:12px;line-height:1.7;
+    position:relative;z-index:2;
+  }
+  .breakdown b{color:var(--ink);font-weight:600;}
+
+  .calc{
+    margin-top:16px;background:var(--accent-soft);border-radius:12px;padding:16px;
+    position:relative;z-index:2;
+  }
+  .calc-label{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;}
+  .calc-grid label{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--ink-soft);font-weight:600;}
+  .input-affix{position:relative;}
+  .input-affix input{width:100%;}
+  .input-affix.prefix-dollar input{padding-left:20px;}
+  .input-affix.prefix-dollar::before{
+    content:'$';position:absolute;left:9px;top:50%;transform:translateY(-50%);
+    color:var(--ink-soft);font-size:14px;pointer-events:none;
+  }
+  .input-affix.suffix-percent input{padding-right:22px;}
+  .input-affix.suffix-percent::after{
+    content:'%';position:absolute;right:9px;top:50%;transform:translateY(-50%);
+    color:var(--ink-soft);font-size:14px;pointer-events:none;
+  }
+  .calc-grid input{
+    font:15px/1.2 'Inter',sans-serif;font-variant-numeric:tabular-nums;
+    padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);
+    width:100%;
+  }
+  .calc-grid input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .comp-link{
+    display:inline-block;margin-top:12px;font-size:11.5px;font-weight:600;color:var(--accent);
+    cursor:pointer;text-decoration:none;
+  }
+  .comp-link:hover{text-decoration:underline;}
+  .comp-link + .comp-link{margin-left:16px;}
+  .comp-link.inline{display:inline;margin-top:0;font-size:inherit;font-weight:600;color:var(--accent);cursor:pointer;}
+  .comp-link.inline:hover{text-decoration:underline;}
+
+  .result-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);}
+  .result{display:flex;flex-direction:column;gap:2px;}
+  .result .rl{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);}
+  .result .rv{font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:600;color:var(--ink);}
+
+  .net-row{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .cap-badge{
+    font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:22px;
+    padding:6px 14px;border-radius:10px;
+  }
+  .cap-badge.good{background:var(--good-soft);color:var(--good);}
+  .cap-badge.watch{background:var(--watch-soft);color:var(--watch);}
+  .cap-badge.bad{background:var(--bad-soft);color:var(--bad);}
+  .cap-label{font-size:12px;color:var(--ink-soft);}
+
+  .take{font-size:13.5px;line-height:1.65;color:var(--ink);margin-top:14px;}
+  .take b{color:var(--accent);}
+  .card-cta{
+    font-size:12.5px;font-weight:600;color:var(--accent);margin-top:14px;
+    display:inline-flex;align-items:center;gap:4px;
+  }
+
+  footer{
+    margin-top:56px;border-top:1px solid var(--line);padding-top:24px;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:13px;color:var(--ink-soft);line-height:1.7;
+  }
+  footer .brand{font-family:'Fraunces',Georgia,serif;font-size:16px;color:var(--ink);font-weight:600;}
+
+  @media (max-width:520px){
+    .card-top{flex-direction:column;}
+    .price{white-space:normal;}
+  }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <header>
+    <img class="logo-top" src="data:image/png;base64,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" alt="Coastal Property Advisors">
+    <div class="eyebrow">Prepared for Alexis Estiz</div>
+    <div class="prepared-date">Prepared September 25, 2026</div>
+    <h1>Owner-Occupant Townhouse Shortlist</h1>
+    <p class="subhead">2&ndash;5 family houses in Greenpoint and Williamsburg, $1.5M&ndash;$3M, financed with 30% down. You&rsquo;d live in one unit and rent the rest &mdash; the goal is a net effective monthly housing cost around <strong>$6,000</strong>, family space needs allowing.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n">$1.8M&ndash;$3.0M</div><div class="l">Price range shown</div></div>
+      <div class="stat"><div class="n">5 of 6</div><div class="l">Land at or near your $6,000 target</div></div>
+      <div class="stat"><div class="n">2&ndash;5</div><div class="l">Family sizes represented</div></div>
+    </div>
+  </header>
+
+  <div class="method">
+    <h3>How the numbers below work</h3>
+    <div class="formula">Net Effective Monthly Cost = P&amp;I + Property Tax + Insurance &minus; Rental Income
+      <small>P&amp;I assumes a 30-year fixed loan. Purchase price, down payment (as % or as a dollar amount &mdash; edit either one and the other updates), rate, and each unit's rental income are all editable on every card &mdash; change any of them and the loan amount, payment, and net cost recalculate instantly, so you can run your own scenario for each property.</small>
+    </div>
+    <p><b style="color:var(--ink)">Default rate: 7.375%.</b> Freddie Mac's national average 30-year fixed rate was 7.03% for the week of September 24, 2026. Conventional loans on 2&ndash;4 unit primary-residence properties carry a modest loan-level price adjustment over a single-family primary rate at the same down payment &mdash; we've built roughly 0.375 points of that into the default shown here. Your actual quote will depend on your lender, credit, and reserves; treat this as a planning estimate and edit it once you have a real quote.</p>
+    <p>This is a financing screen, not full underwriting &mdash; closing costs, reserves, and a vacancy allowance come later, once you're serious about a specific address. Insurance is a rough estimate pending an actual broker quote.</p>
+    <p>Figures marked <em>confirmed</em> are cross-checked against NYC property tax records and the listing itself. Figures marked <em>estimated</em> are conservative, comp-based rental projections &mdash; not signed leases; each card links to the actual StreetEasy comps used. A <em>note</em> flags something specific worth running down before you write an offer &mdash; a steep price jump, an occupied unit, a unit count or layout question.</p>
+  </div>
+
+  <!-- GREENPOINT -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Greenpoint</h2>
+    </div>
+    <div class="callout good">
+      <strong>Four candidates, real spread in outcomes.</strong> The best of them (58 Diamond) gets almost all the way to free housing once both rental units are in place &mdash; the shakiest (214 Eagle) is recorded as a two-family but shows like one, so its rental math is unconfirmed.
+    </div>
+
+    <div class="cards">
+
+      <div class="card pick" data-tax="678" data-insurance="375">
+        <a class="card-link" href="https://streeteasy.com/building/58-diamond-street-brooklyn/sale/1843241" target="_blank" rel="noopener" aria-label="View 58 Diamond Street on StreetEasy"></a>
+        <span class="pick-flag">Best net cost</span>
+        <div class="flags">
+          <span class="data-flag confirmed">3-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Price +59% since 2023</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">58 Diamond Street</div>
+            <div class="neighborhood">Greenpoint</div>
+          </div>
+          <div class="price">$2,799,000</div>
+        </div>
+        <div class="specs"><span>3-family</span><span>9 beds</span><span>3 baths</span><span>25&times;100 lot</span><span>Built 1901</span></div>
+        <div class="breakdown">
+          Sold <b>$1,755,000</b> on 9/6/2023 &mdash; today's ask is 59% above that. 35 days on market, no price cuts yet. Three floor-through units, roughly 3 bedrooms each.<br>
+          Rent basis: Greenpoint 3-bed multi-family comps &mdash; <span class="comp-link inline" data-href="https://streeteasy.com/building/159-russell-street-brooklyn/3">159 Russell St #3</span> ($6,495), <span class="comp-link inline" data-href="https://streeteasy.com/building/16-russell-street-brooklyn/ground-floor">16 Russell St ground-floor</span> ($7,995), <span class="comp-link inline" data-href="https://streeteasy.com/building/594-leonard-street-brooklyn/1b">594 Leonard St #1B</span> ($7,800); one $12,800 renovated outlier (<span class="comp-link inline" data-href="https://streeteasy.com/building/687-humboldt-street-brooklyn/1">687 Humboldt St #1</span>) excluded as unrepresentative.
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="2,799,000"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="839,700"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>Unit 2 rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="7,200"></div>
+            </label>
+            <label>Unit 3 rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="7,200"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:3%7Ctype:M,house">View rental comps used &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$1,959,300</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$13,532/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$1,053/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge good out-badge">$185/mo</span>
+          <span class="cap-label">net effective monthly cost, with both units rented</span>
+        </div>
+        <div class="take">With two ~3-bedroom units rented at neighborhood comps, this is the only property here where rental income nearly wipes out the entire mortgage-plus-carrying-cost nut. The catch is the price: it traded for $1.76M just three years ago, so there's real room &mdash; and real reason &mdash; to open well under ask.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+      <div class="card" data-tax="500" data-insurance="250">
+        <a class="card-link" href="https://streeteasy.com/building/48-hausman-street-brooklyn/sale/1823288" target="_blank" rel="noopener" aria-label="View 48 Hausman Street on StreetEasy"></a>
+        <div class="flags">
+          <span class="data-flag confirmed">2-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Currently occupied &mdash; confirm vacant delivery</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">48 Hausman Street</div>
+            <div class="neighborhood">Greenpoint</div>
+          </div>
+          <div class="price">$1,795,000</div>
+        </div>
+        <div class="specs"><span>2-family</span><span>6 beds</span><span>2 baths</span><span>25&times;100 lot</span><span>Built 1899</span></div>
+        <div class="breakdown">
+          On the market 157 days, already cut 5.5% from $1,899,000. First time offered for sale in over 30 years. Listing says currently fully occupied but can be delivered vacant.<br>
+          Rent basis: direct comp next door at <span class="comp-link inline" data-href="https://streeteasy.com/building/52-hausman-street-brooklyn/2">52 Hausman St #2</span> (2BR/1BA, $4,850) as a floor; this building's larger ~3-bedroom floors sized against the Greenpoint 3-bed comp set should command more, shown conservatively above that comp.
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="1,795,000"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="538,500"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>Rental unit rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="6,800"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:2%7Ctype:M,house">52 Hausman St #2 comp (2BR set) &rarr;</span>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:3%7Ctype:M,house">Size-adjusted 3BR comps &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$1,256,500</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$8,678/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$750/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge good out-badge">$2,628/mo</span>
+          <span class="cap-label">net effective monthly cost</span>
+        </div>
+        <div class="take">Lowest net cost in the set even before any negotiating, and it's already been cut once. The open question isn't the math &mdash; it's timeline: get the current occupancy and lease status in writing before assuming a fast close.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+      <div class="card" data-tax="451" data-insurance="275">
+        <a class="card-link" href="https://streeteasy.com/building/33-sutton-street-brooklyn/sale/1848566" target="_blank" rel="noopener" aria-label="View 33 Sutton Street on StreetEasy"></a>
+        <div class="flags">
+          <span class="data-flag confirmed">2-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Just listed &mdash; no price history yet</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">33 Sutton Street</div>
+            <div class="neighborhood">Greenpoint</div>
+          </div>
+          <div class="price">$2,200,000</div>
+        </div>
+        <div class="specs"><span>2-family</span><span>4 beds</span><span>2 baths</span><span>100 ft deep lot</span><span>Built 1910</span></div>
+        <div class="breakdown">
+          Listed 9/17/2026, 8 days on market, no price cuts to read yet. Two floors, roughly 2 bedrooms each, plus a basement described as extra (not a legal third unit).<br>
+          Rent basis: Greenpoint 2-bedroom multi-family comps &mdash; 10 active listings, $3,600&ndash;$5,950 (excluding one $9,975 new-development outlier just outside the neighborhood), median $4,850. Examples: <span class="comp-link inline" data-href="https://streeteasy.com/building/181-meserole-avenue-brooklyn/1l">181 Meserole Ave #1L</span> ($5,250), <span class="comp-link inline" data-href="https://streeteasy.com/building/60-sutton-street-brooklyn/2">60 Sutton St #2</span> ($4,795), <span class="comp-link inline" data-href="https://streeteasy.com/building/76-java-street-brooklyn/3">76 Java St #3</span> ($5,950).
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="2,200,000"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="660,000"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>Rental unit rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="4,850"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:2%7Ctype:M,house">View rental comps used &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$1,540,000</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$10,636/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$726/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge watch out-badge">$6,512/mo</span>
+          <span class="cap-label">net effective monthly cost</span>
+        </div>
+        <div class="take">Lands just above your target renting only one unit at a conservative comp. It's brand new to market, so there's no price-cut history to read &mdash; you'd be setting the negotiation, not reacting to one.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+      <div class="card" data-tax="422" data-insurance="260">
+        <a class="card-link" href="https://streeteasy.com/building/214-eagle-street-brooklyn/sale/1841606" target="_blank" rel="noopener" aria-label="View 214 Eagle Street on StreetEasy"></a>
+        <div class="flags">
+          <span class="data-flag confirmed">2-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Verify unit separation before an offer</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">214 Eagle Street</div>
+            <div class="neighborhood">Greenpoint</div>
+          </div>
+          <div class="price">$1,970,000</div>
+        </div>
+        <div class="specs"><span>2-family</span><span>4 beds</span><span>2.5 baths</span><span>2,268 ft&sup2;</span><span>Built 1899</span></div>
+        <div class="breakdown">
+          Last sold <b>$1,275,000</b> on 4/21/2017. Priced down from $2,495,000 in April 2025. Private backyard pool and roof solar.<br>
+          <b>Flag:</b> the listing's own description reads as one continuous renovated home &mdash; bedrooms upstairs, a family room, a finished lower level &mdash; not two separate apartments, even though NYC records still show it as a legal 2-family. Rent shown at $0 until that's confirmed on a walkthrough. Reference comps if separable (2BR): <span class="comp-link inline" data-href="https://streeteasy.com/building/206-calyer-street-brooklyn/b">206 Calyer St #B</span> ($3,675), <span class="comp-link inline" data-href="https://streeteasy.com/building/206-north-henry-street-brooklyn/3">206 North Henry St #3</span> ($3,600).
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="1,970,000"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="591,000"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>If-separable rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="0"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:2%7Ctype:M,house">Reference comps if separable (2BR) &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$1,379,000</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$9,524/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$682/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge bad out-badge">$10,206/mo</span>
+          <span class="cap-label">net effective monthly cost, as delivered</span>
+        </div>
+        <div class="take">Priced as a two-family but photographed and described like a one-family. If the second unit is genuinely separable, a conservative $4,300/mo (below the Greenpoint 2BR comp median) would bring this to roughly <b>$5,906/mo</b> &mdash; try that number in the calculator above. If it's not separable without work, this is really a one-family purchase at a two-family basis, and the math above (no rental offset) is the honest number.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WILLIAMSBURG -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Williamsburg</h2>
+    </div>
+    <div class="callout good">
+      <strong>Two candidates, both workable.</strong> 410 South 5th has the cleanest documented unit split of anything on this list &mdash; built for exactly the "squeeze into 2 bedrooms" scenario you flagged as acceptable.
+    </div>
+
+    <div class="cards">
+
+      <div class="card" data-tax="515" data-insurance="380">
+        <a class="card-link" href="https://streeteasy.com/building/427-humboldt-street-brooklyn/na" target="_blank" rel="noopener" aria-label="View 427 Humboldt Street on StreetEasy"></a>
+        <div class="flags">
+          <span class="data-flag confirmed">3-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">355 days on market &mdash; real room to negotiate</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">427 Humboldt Street</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$3,000,000</div>
+        </div>
+        <div class="specs"><span>3-family</span><span>8 beds</span><span>3 baths</span><span>2,400 ft&sup2;</span><span>Built 1910</span></div>
+        <div class="breakdown">
+          Already cut 6.3% from $3,200,000 (Oct 2025), and has been on the market 355 days &mdash; the longest of anything on this list. Roughly 2&ndash;3 bedrooms per unit.<br>
+          Rent basis: Williamsburg 3-bed multi-family comps &mdash; only 2 active listings found, <span class="comp-link inline" data-href="https://streeteasy.com/building/288-ainslie-street-brooklyn/b">288 Ainslie St #B</span> ($5,950) and <span class="comp-link inline" data-href="https://streeteasy.com/building/213-north-5-street-brooklyn/1r">213 North 5th St #1R</span> ($4,750 + $460 fee); both units shown at the midpoint of that range.
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="3,000,000"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="900,000"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>Unit 2 rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="5,200"></div>
+            </label>
+            <label>Unit 3 rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="5,200"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/williamsburg/beds:3%7Ctype:M,house">View rental comps used &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$2,100,000</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$14,504/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$895/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge good out-badge">$4,999/mo</span>
+          <span class="cap-label">net effective monthly cost, at full ask</span>
+        </div>
+        <div class="take">Already clears the target at full asking price. At $3M this is the priciest property in the set on paper, but it's also sat the longest with the deepest price-cut history &mdash; a real below-ask offer is realistic and would improve this number further. Note the rental comp set here is thin (just 2 active listings) &mdash; worth a broker price opinion on the actual units before you rely on it.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+      <div class="card" data-tax="763" data-insurance="270">
+        <a class="card-link" href="https://streeteasy.com/building/410-south-5-street-brooklyn/sale/1842048" target="_blank" rel="noopener" aria-label="View 410 South 5th Street on StreetEasy"></a>
+        <div class="flags">
+          <span class="data-flag confirmed">2-family confirmed</span>
+          <span class="data-flag confirmed">Tax confirmed</span>
+          <span class="data-flag note">Thin rent comps for the 4BR unit &mdash; get an appraisal</span>
+        </div>
+        <div class="card-top">
+          <div>
+            <div class="addr">410 South 5th Street</div>
+            <div class="neighborhood">Williamsburg</div>
+          </div>
+          <div class="price">$2,699,999</div>
+        </div>
+        <div class="specs"><span>2-family</span><span>6 beds</span><span>3 baths</span><span>2,505 ft&sup2;</span><span>Built 2000</span></div>
+        <div class="breakdown">
+          The newest building on this list (built 2000, so mechanicals and layout should be turnkey). Clean unit split: first floor is 2BR/1BA, second floor is an expansive 4BR/2BA.<br>
+          Rent basis for the 4BR unit: only one true 4BR multi-family comp exists in Williamsburg (<span class="comp-link inline" data-href="https://streeteasy.com/building/53-grand-street-brooklyn/3">53 Grand St #3</span>, $16,200 &mdash; a luxury renovation, clearly not representative). Cross-referencing Greenpoint 4BR comps instead (<span class="comp-link inline" data-href="https://streeteasy.com/building/599-morgan-avenue-brooklyn/3">599 Morgan Ave #3</span>, $5,220 net effective; <span class="comp-link inline" data-href="https://streeteasy.com/building/78-sutton-street-brooklyn/2">78 Sutton St #2</span>, $5,875) and adding a premium for Williamsburg and the newer build, we've landed on $7,500/mo &mdash; below the luxury outlier, above the Greenpoint baseline.
+        </div>
+        <div class="calc">
+          <div class="calc-label">Run your own numbers</div>
+          <div class="calc-grid">
+            <label>Purchase price
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-price" value="2,699,999"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix suffix-percent"><input type="number" class="in-down-pct" value="30" step="1"></div>
+            </label>
+            <label>Down payment
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-down-amt" value="810,000"></div>
+            </label>
+            <label>Rate
+              <div class="input-affix suffix-percent"><input type="number" class="in-rate" value="7.375" step="0.05"></div>
+            </label>
+            <label>4BR unit rent/mo
+              <div class="input-affix prefix-dollar"><input type="text" inputmode="numeric" class="in-rent" value="7,500"></div>
+            </label>
+          </div>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/williamsburg/beds:4%7Ctype:M,house">Williamsburg 4BR comps &rarr;</span>
+          <span class="comp-link" data-href="https://streeteasy.com/for-rent/greenpoint/beds:4%7Ctype:M,house">Greenpoint 4BR comps &rarr;</span>
+        </div>
+        <div class="result-row">
+          <div class="result"><span class="rl">Loan amount</span><span class="rv out-loan">$1,890,000</span></div>
+          <div class="result"><span class="rl">P&amp;I</span><span class="rv out-pi">$13,054/mo</span></div>
+          <div class="result"><span class="rl">Tax + insurance</span><span class="rv">$1,033/mo</span></div>
+        </div>
+        <div class="net-row">
+          <span class="cap-badge watch out-badge">$6,587/mo</span>
+          <span class="cap-label">net effective monthly cost</span>
+        </div>
+        <div class="take">The best-documented unit split of anything on this list, in the newest building. Lands close to your target on a deliberately conservative rent estimate &mdash; get an actual rental appraisal on the 4BR unit specifically, since the comp set for that size is thin in this footprint.</div>
+        <div class="card-cta">View on StreetEasy &rarr;</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <img class="logo-bottom" src="data:image/png;base64,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" alt="Coastal Property Advisors">
+      <div class="brand">Herman Singh</div>
+      Coastal Property Advisors &middot; NY | CA | FL<br>
+      hs@coastalpropertyadvisors.com &middot; 718-679-7822
+    </div>
+    <div>Prepared September 25, 2026. Rents are conservative, comp-based estimates &mdash; not guarantees. Insurance is a placeholder pending a broker quote. Send along anything you find yourself and we&rsquo;ll run it through the same screen.</div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  function fmt(n){
+    n = Math.round(n);
+    var sign = n < 0 ? '-' : '';
+    return sign + '$' + Math.abs(n).toLocaleString('en-US');
+  }
+  function pmt(principal, ratePct){
+    var r = (ratePct/100)/12, n = 360;
+    if (!(r > 0)) return principal / n;
+    var f = Math.pow(1+r, n);
+    return principal * r * f / (f - 1);
+  }
+  function num(el){ return el ? (parseFloat(String(el.value).replace(/,/g,'')) || 0) : 0; }
+  function fmtThousands(n){
+    n = Math.round(n);
+    return isNaN(n) ? '0' : n.toLocaleString('en-US');
+  }
+
+  function recalc(card){
+    var priceEl = card.querySelector('.in-price');
+    var pctEl = card.querySelector('.in-down-pct');
+    var amtEl = card.querySelector('.in-down-amt');
+    var rateEl = card.querySelector('.in-rate');
+    var price = num(priceEl);
+    var rate = num(rateEl);
+    var tax = parseFloat(card.dataset.tax) || 0;
+    var ins = parseFloat(card.dataset.insurance) || 0;
+
+    var down;
+    if (card.dataset.downEdit === 'amt') {
+      down = num(amtEl);
+      if (pctEl) pctEl.value = price > 0 ? Math.round((down/price*100) * 100) / 100 : 0;
+    } else {
+      var pct = num(pctEl);
+      down = price * (pct/100);
+      if (amtEl) amtEl.value = fmtThousands(down);
+    }
+
+    var loan = Math.max(price - down, 0);
+    var pi = pmt(loan, rate);
+    var gross = pi + tax + ins;
+
+    var rent = 0;
+    card.querySelectorAll('.in-rent').forEach(function(r){ rent += num(r); });
+
+    var net = gross - rent;
+
+    var loanOut = card.querySelector('.out-loan');
+    var piOut = card.querySelector('.out-pi');
+    if (loanOut) loanOut.textContent = fmt(loan);
+    if (piOut) piOut.textContent = fmt(pi) + '/mo';
+
+    var badge = card.querySelector('.out-badge');
+    if (badge) {
+      badge.textContent = fmt(net) + '/mo';
+      badge.classList.remove('good','watch','bad');
+      badge.classList.add(net <= 6000 ? 'good' : (net <= 8000 ? 'watch' : 'bad'));
+    }
+  }
+
+  document.querySelectorAll('.card').forEach(function(card){
+    card.dataset.downEdit = 'pct';
+
+    var pctEl = card.querySelector('.in-down-pct');
+    var amtEl = card.querySelector('.in-down-amt');
+    if (pctEl) pctEl.addEventListener('input', function(){ card.dataset.downEdit = 'pct'; try { recalc(card); } catch(e) {} });
+    if (amtEl) amtEl.addEventListener('input', function(){ card.dataset.downEdit = 'amt'; try { recalc(card); } catch(e) {} });
+
+    card.querySelectorAll('.in-price, .in-rate, .in-rent').forEach(function(inp){
+      inp.addEventListener('input', function(){ try { recalc(card); } catch(e) {} });
+    });
+
+    // Dollar fields are type="text" (a native number input can't display "2,799,000"),
+    // so format them with thousands separators once the person leaves the field —
+    // reformatting while they're still typing would fight the cursor position.
+    card.querySelectorAll('.in-price, .in-down-amt, .in-rent').forEach(function(inp){
+      inp.addEventListener('blur', function(){ this.value = fmtThousands(num(this)); });
+    });
+
+    try { recalc(card); } catch(e) {}
+  });
+
+  // Individual rental-comp links (in the calculator box and inline in the rental-basis
+  // text) open the comp listing itself. .calc and .breakdown sit above the card's
+  // stretched listing-link in z-index (see CSS), so clicks here never reach that link
+  // in the first place — no event-cancellation needed, just a normal click.
+  document.querySelectorAll('.comp-link').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.stopPropagation();
+      var href = this.dataset.href;
+      if (href) window.open(href, '_blank', 'noopener');
+    });
+  });
+})();
+</script>
